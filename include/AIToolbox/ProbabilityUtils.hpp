@@ -43,7 +43,6 @@ namespace AIToolbox {
         }
         if ( checkDifferentSmall(p, 1.0) )
             return false;
-
         return true;
     }
 

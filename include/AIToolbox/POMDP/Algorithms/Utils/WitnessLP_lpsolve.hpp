@@ -7,7 +7,7 @@
 
 #include <AIToolbox/POMDP/Types.hpp>
 
-#include <lpsolve/lp_types.h>
+#include <lp_types.h>
 
 namespace AIToolbox {
     namespace POMDP {

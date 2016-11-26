@@ -20,9 +20,9 @@ SET(LPSOLVE_INCLUDE_TRIAL_PATH
     /opt/local/include
     )
 
-FIND_PATH(LPSOLVE_INCLUDE_PATH lpsolve/lp_lib.h ${LPSOLVE_INCLUDE_PATH} ${LPSOLVE_INCLUDE_TRIAL_PATH})
+FIND_PATH(LPSOLVE_INCLUDE_PATH lp_lib.h ${LPSOLVE_INCLUDE_PATH} ${LPSOLVE_INCLUDE_TRIAL_PATH})
 IF (LPSOLVE_INCLUDE_PATH)
-    STRING(REGEX REPLACE "lpsolve/*$" "" LPSOLVE_INCLUDE_PATH ${LPSOLVE_INCLUDE_PATH})
+	#STRING(REGEX REPLACE "lpsolve/*$" "" LPSOLVE_INCLUDE_PATH ${LPSOLVE_INCLUDE_PATH})
     SET(LPSOLVE_INCLUDE_DIR ${LPSOLVE_INCLUDE_PATH} CACHE STRING "Full path to the lpsolve headers" FORCE)
     INCLUDE_DIRECTORIES(${LPSOLVE_INCLUDE_DIR})
 
@@ -37,15 +37,14 @@ IF (LPSOLVE_INCLUDE_PATH)
 
     FIND_LIBRARY(TMP_LPSOLVE_LIBRARIES
         NAMES lpsolve55
-        PATHS ${LPSOLVE_LIBRARIES} ${LPSOLVE_LIB_TRIALPATH}
-        PATH_SUFFIXES lp_solve)
+        PATHS ${LPSOLVE_LIBRARIES} ${LPSOLVE_LIB_TRIALPATH})
     SET(LPSOLVE_LIBRARIES ${TMP_LPSOLVE_LIBRARIES} CACHE STRING "Full path to the lpsolve55 library (including the library)" FORCE)
     IF (LPSOLVE_LIBRARIES)
         SET(LPSOLVE_FOUND TRUE)
 
         ## Try to find out if lpsolve can link standalone
         SET(LPSOLVE_TRY_CODE 
-            "#include <lpsolve/lp_lib.h>
+            "#include <lp_lib.h>
              int main(int /*argc*/, char** /*argv*/) {
                 int major, minor, release, build;
                 

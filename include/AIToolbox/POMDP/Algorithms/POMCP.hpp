@@ -319,8 +319,14 @@ namespace AIToolbox {
         };
 
         template <typename M>
-        POMCP<M>::POMCP(const M& m, size_t beliefSize, unsigned iter, double exp) : model_(m), S(model_.getS()), A(model_.getA()), beliefSize_(beliefSize), iterations_(iter),
-                                                                              exploration_(exp), graph_(), rand_(Impl::Seeder::getSeed()) {}
+        POMCP<M>::POMCP(const M& m, size_t beliefSize, unsigned iter, double exp) : model_(m),
+                                                                                    S(model_.getS()),
+                                                                                    A(model_.getA()),
+                                                                                    beliefSize_(beliefSize),
+                                                                                    iterations_(iter),
+                                                                                    exploration_(exp),
+                                                                                    graph_(),
+                                                                                    rand_(Impl::Seeder::getSeed()) {}
 
         template <typename M>
         size_t POMCP<M>::sampleAction(const Belief& b, unsigned horizon) {

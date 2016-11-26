@@ -1,6 +1,6 @@
 #include <AIToolbox/POMDP/Algorithms/Utils/WitnessLP_lpsolve.hpp>
 
-#include <lpsolve/lp_lib.h>
+#include <lp_lib.h>
 
 namespace AIToolbox {
     namespace POMDP {
